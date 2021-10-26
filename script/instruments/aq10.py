@@ -219,18 +219,24 @@ class AQ10:
             
             #If wm is false then working memory cannot be calculated so we assign NaN to the WK column
             if agree == False:
+
                 perCompleteIndexAgree = self.df.columns.get_loc(self.instrument+self.percetage_complete_agreed+ run)
+
                 #we use the amount of values missing to determine the percentage of values present
                 self.df.iloc[index,perCompleteIndexAgree] = (4-amountMissingAgree)/4*100
                 
             #If wm is false then working memory cannot be calculated so we assign NaN to the WK column
             if disagree == False:
+
                 perCompleteIndexDisagree = self.df.columns.get_loc(self.instrument+self.percetage_complete_disagreed+ run)
+
                 #we use the amount of values missing to determine the percentage of values present
                 self.df.iloc[index,perCompleteIndexDisagree] = (6-amountMissingDisagree)/6*100
                 
             #If either wm or inh is false then total score cannot be calculated so we assign NaN to the total score column
+
             perCompleteIndexTotal = self.df.columns.get_loc(self.instrument+self.percetage_complete_total+ run)
+
             #we use the amount of values missing to determine the percentage of values present
             self.df.iloc[index,perCompleteIndexTotal] = (10-(amountMissingDisagree+amountMissingAgree))/10*100
                 
@@ -266,9 +272,11 @@ class AQ10:
                 '''
                 self.missingData(i)
                 #creates the percentage complete columns
+
                 self.percentageComplete(self.instrument+self.percetage_complete_total,i)
                 self.percentageComplete(self.instrument+self.percetage_complete_agreed,i)
                 self.percentageComplete(self.instrument+self.percetage_complete_disagreed,i)
+
                 
                 self.addNewColumn(self.total, i)
                 run = self.df.columns[self.sections[i+1]].split("_",1)[1].split("_comp")[0]

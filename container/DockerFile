@@ -1,0 +1,26 @@
+FROM continuumio/miniconda3
+
+RUN apt-get update && apt-get -y upgrade\
+ bash-completion \
+ build-essential \
+ curl \
+ git \
+ git-core \
+ golang \
+ htop \
+ locales \
+ man \
+ nmap \
+ python3-pip \
+ ruby-full \
+ strace \
+ sudo \
+ tig \
+ vim \
+ wget
+
+RUN locale-gen en_US.UTF-8
+
+# Create the environment:
+COPY environment.yml .
+RUN conda env create -f environment.yml
