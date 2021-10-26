@@ -19,6 +19,12 @@ class Adexi:
         type: list
     nullRow: stores the rows that contain empty values for a section
         type: list
+    workingMemory: contains the specific questions for this subscore
+        type: list
+    inhibition: contains the specific questions for this subscore
+        type: list
+    total: contains the specific questions for this score
+        type: list
     """
         self.instrument = instrument
         self.workingMemory = jsonData[instrument][0][list(jsonData[instrument][0])[0]]
@@ -29,6 +35,11 @@ class Adexi:
         self.sections = []
         self.jdata = jsonData
         self.nullRow = []
+
+        #name variable for the percetage complete from the json file
+        self.percetage_complete_wm = jsonData[instrument][0][list(jsonData[instrument][0])[3]] 
+        self.percetage_complete_inh = jsonData[instrument][0][list(jsonData[instrument][0])[4]] 
+        self.percetage_complete_total = jsonData[instrument][0][list(jsonData[instrument][0])[5]] 
         
     def getSections(self):
         """
@@ -129,7 +140,7 @@ class Adexi:
             #If wm is false then working memory cannot be calculated so we assign NaN to the WK column
             if wm == False:
                 wmColumnIndex = self.df.columns.get_loc(list(self.jdata['adexi'][0])[0]+'_'+ run)
-                perCompleteIndexWM = self.df.columns.get_loc(self.instrument+'_per-complete-wm_'+ run)
+                perCompleteIndexWM = self.df.columns.get_loc(self.instrument+self.percetage_complete_wm+ run)
                 self.df.iloc[index,wmColumnIndex]= np.NAN
                 #we use the amount of values missing to determine the percentage of values present
                 self.df.iloc[index,perCompleteIndexWM] = (9-amountMissingWM)/9*100
@@ -137,7 +148,7 @@ class Adexi:
             #If wm is false then working memory cannot be calculated so we assign NaN to the WK column
             if inh == False:
                 inhColumnIndex = self.df.columns.get_loc(list(self.jdata['adexi'][0])[1]+'_'+ run)
-                perCompleteIndexINH = self.df.columns.get_loc(self.instrument+'_per-complete-inh_'+ run)
+                perCompleteIndexINH = self.df.columns.get_loc(self.instrument+self.percetage_complete_inh+ run)
                 self.df.iloc[index,inhColumnIndex]= np.NAN
                 #we use the amount of values missing to determine the percentage of values present
                 self.df.iloc[index,perCompleteIndexINH] = (5-amountMissingINH)/5*100
@@ -145,7 +156,7 @@ class Adexi:
             #If either wm or inh is false then total score cannot be calculated so we assign NaN to the total score column
             if inh == False or wm == False:
                 totalscoreColumnIndex = self.df.columns.get_loc(self.total + '_' +run)
-                perCompleteIndexTotal = self.df.columns.get_loc(self.instrument+'_per-complete-total_'+ run)
+                perCompleteIndexTotal = self.df.columns.get_loc(self.instrument+self.percetage_complete_total+ run)
                 self.df.iloc[index,totalscoreColumnIndex]= np.NAN
                 #we use the amount of values missing to determine the percentage of values present
                 self.df.iloc[index,perCompleteIndexTotal] = (14-(amountMissingINH+amountMissingWM))/14*100
@@ -205,7 +216,7 @@ class Adexi:
         '''
         run = self.df.columns[self.sections[position+1]].split("_",1)[1].split("_comp")[0]
         location = self.sections[position+1]+1
-        column = name + "_" + run
+        column = name + run
         percentage = 100
         
         self.df.insert(loc = location,
@@ -229,9 +240,9 @@ class Adexi:
                 #calculates the addtion of all the columns
                 addition = pd.to_numeric(self.df.iloc[:, self.sections[i]+1:self.sections[i+1]].sum(axis=1))
                 #creates the percentage complete columns
-                self.percentageComplete(self.instrument+'_per-complete-total',i)
-                self.percentageComplete(self.instrument+'_per-complete-wm',i)
-                self.percentageComplete(self.instrument+'_per-complete-inh',i)
+                self.percentageComplete(self.instrument+self.percetage_complete_total,i)
+                self.percentageComplete(self.instrument+self.percetage_complete_wm,i)
+                self.percentageComplete(self.instrument+self.percetage_complete_inh,i)
 
                 
                 #columnsArrWM holds the column number to score for the working memory

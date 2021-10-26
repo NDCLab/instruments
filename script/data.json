@@ -2,12 +2,19 @@
     "adexi": [{
         "adexi_scored-wm": [1, 2, 5, 7, 8, 9, 11, 12, 13],
          "adexi_scored-inh": [3, 4, 6, 10, 14],
-         "adexi_scored-total" : "adexi_scored-total"
+         "adexi_scored-total" : "adexi_scored-total",
+         "percentage_complete_wm":"_perc_wm_",
+         "percentage_complete_inh":"_perc_inh_",
+         "percentage_complete_total":"_perc_total_"
          }],
     "aq-10": [{
         "aq-10_agreed":[1,7,8,10],
         "aq-10_disagreed": [2,3,4,5,6,9],
-        "aq-10_scored-total" : "aq-10_scored-total"
+        "aq-10_scored-total" : "aq-10_scored-total",
+        "percentage_complete_agreed":"_perc_agreed_",
+        "percentage_complete_disagreed":"_perc_disagreed_",
+        "percentage_complete_total":"_perc_total_"
+
     }],
     "input": "/Users/osman/OneDrive/Documents/Instruments/rwe_download_2021-10-04b.csv",
     "output":"/Users/osman/OneDrive/Documents/Instruments/rwe_download_2021-10-04b_OUT_Test2.csv"

@@ -12,6 +12,12 @@ class AQ10:
           dictionary containing the keys and values for each instrument
       instrument: str
           name of the instrument
+     agree: contains the specific questions for this subscore
+        type: list
+     disagree: contains the specific questions for this subscore
+        type: list
+     total: contains the specific questions for this score
+        type: list
     '''
     def __init__(self, columns, dataframe, jsonData, instrument):
         
@@ -25,6 +31,11 @@ class AQ10:
         self.sections = []
         self.score = 0
         self.nullRow = []
+
+        #name variable for the percetage complete from the json file
+        self.percetage_complete_agreed = jsonData[instrument][0][list(jsonData[instrument][0])[3]] 
+        self.percetage_complete_disagreed = jsonData[instrument][0][list(jsonData[instrument][0])[4]] 
+        self.percetage_complete_total = jsonData[instrument][0][list(jsonData[instrument][0])[5]] 
         
     def getSections(self):
         ''' gets all of the sections for this intrument.
@@ -208,18 +219,18 @@ class AQ10:
             
             #If wm is false then working memory cannot be calculated so we assign NaN to the WK column
             if agree == False:
-                perCompleteIndexAgree = self.df.columns.get_loc(self.instrument+'_per-complete-agreed_'+ run)
+                perCompleteIndexAgree = self.df.columns.get_loc(self.instrument+self.percetage_complete_agreed+ run)
                 #we use the amount of values missing to determine the percentage of values present
                 self.df.iloc[index,perCompleteIndexAgree] = (4-amountMissingAgree)/4*100
                 
             #If wm is false then working memory cannot be calculated so we assign NaN to the WK column
             if disagree == False:
-                perCompleteIndexDisagree = self.df.columns.get_loc(self.instrument+'_per-complete-disagreed_'+ run)
+                perCompleteIndexDisagree = self.df.columns.get_loc(self.instrument+self.percetage_complete_disagreed+ run)
                 #we use the amount of values missing to determine the percentage of values present
                 self.df.iloc[index,perCompleteIndexDisagree] = (6-amountMissingDisagree)/6*100
                 
             #If either wm or inh is false then total score cannot be calculated so we assign NaN to the total score column
-            perCompleteIndexTotal = self.df.columns.get_loc(self.instrument+'_per-complete-total_'+ run)
+            perCompleteIndexTotal = self.df.columns.get_loc(self.instrument+self.percetage_complete_total+ run)
             #we use the amount of values missing to determine the percentage of values present
             self.df.iloc[index,perCompleteIndexTotal] = (10-(amountMissingDisagree+amountMissingAgree))/10*100
                 
@@ -238,7 +249,7 @@ class AQ10:
         '''
         run = self.df.columns[self.sections[position+1]].split("_",1)[1].split("_comp")[0]
         location = self.sections[position+1]+1
-        column = name + "_" + run
+        column = name + run
         percentage = 100
         
         self.df.insert(loc = location,
@@ -255,9 +266,9 @@ class AQ10:
                 '''
                 self.missingData(i)
                 #creates the percentage complete columns
-                self.percentageComplete(self.instrument+'_per-complete-total',i)
-                self.percentageComplete(self.instrument+'_per-complete-agreed',i)
-                self.percentageComplete(self.instrument+'_per-complete-disagreed',i)
+                self.percentageComplete(self.instrument+self.percetage_complete_total,i)
+                self.percentageComplete(self.instrument+self.percetage_complete_agreed,i)
+                self.percentageComplete(self.instrument+self.percetage_complete_disagreed,i)
                 
                 self.addNewColumn(self.total, i)
                 run = self.df.columns[self.sections[i+1]].split("_",1)[1].split("_comp")[0]
