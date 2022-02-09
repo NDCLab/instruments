@@ -87,61 +87,59 @@
             "threshold": 1.0
         }
     },
-    "ambi": {
-        "inh": {
+    "ambirmbi": {
+        "inhA": {
             "questions": [5, 8, 1, 11, 2, 3, 10],
             "max": 2,
             "score_type": "sum"
         },
-        "non": {
+        "nonA": {
             "questions": [9, 4, 6],
             "rev_questions": [9, 4, 6],
             "max": 2,
             "score_type": "sum"
         },
-        "low": {
+        "lowA": {
             "questions": [12, 14, 15],
             "rev_questions": [15],
             "max": 2,
             "score_type": "sum"
         },
-        "risk": {
+        "riskA": {
             "questions": [13, 7, 16],
             "rev_questions": [13, 16],
             "max": 2,
             "score_type": "sum"
         },
-        "total": {
+        "AMBI": {
             "questions": [],
             "products": ["inh", "non", "low", "risk"],
             "score_type": "sum"
-        }
-    },
-    "rmbi": {
-        "inh": {
+        },
+        "inhR": {
             "questions": [1, 6, 10, 16, 18],
             "max": 2,
             "score_type": "sum"
         },
-        "non": {
+        "nonR": {
             "questions": [2, 4, 5, 9, 11, 15],
             "rev_questions": [4, 5, 11, 15],
             "max": 2,
             "score_type": "sum"
         },
-        "shy": {
+        "shyR": {
             "questions": [3, 12, 14, 17],
             "rev_questions": [15],
             "max": 2,
             "score_type": "sum"
         },
-        "risk": {
+        "riskR": {
             "questions": [7, 8, 13],
             "rev_questions": [7, 13],
             "max": 2,
             "score_type": "sum"
         },
-        "total": {
+        "RMBI": {
             "questions": [],
             "products": ["inh", "non", "low", "risk"],
             "score_type": "sum"
@@ -180,14 +178,12 @@
             "threshold": 0.8
         }
     },
-    "sias6": {
-         "total": {
+    "sias6sps6": {
+        "SIAS": {
             "questions": [1, 2, 3, 4, 5, 6],
             "score_type": "sum"
-        }
-    },
-    "sps6": {
-         "total": {
+        },
+        "SPS": {
             "questions": [7, 8, 9, 10, 11, 12],
             "score_type": "sum"
         }
