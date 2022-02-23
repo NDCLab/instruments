@@ -13,9 +13,9 @@
 module load singularity-3.5.3
 
 # edit variables here to change inputs and outputs
-input_file="/home/data/NDClab/datasets/readAloud-valence-dataset/sourcedata/raw/redcap/AnInvestigationIntoC_DATA_2022-02-16_1101.csv"
-output_file="~/Downloads/outputs.csv"
 project="readAloud-valence-dataset"
+input_file="/home/data/NDClab/datasets/$project/sourcedata/raw/redcap/AnInvestigationIntoC_DATA_2022-02-16_1101.csv"
+output_file="~/Downloads/outputs.csv"
 
 # paths to static code and data
 sing_image="containers/singularity/inst-container.simg"
