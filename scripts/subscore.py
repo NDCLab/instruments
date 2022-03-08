@@ -66,12 +66,18 @@ class Subscore:
     perc_complete(self, row):
             Function to get percentage of complete questions for selected questions on passed row.
             Returns float representing percentage.
+    perc_complete_for_products(self, row):
+            Function to get percentage across previous products to reflect actual total.
+            Returns float representing percentage.
     score(self, data):
             Function to get score and percenatage complete. Returns dataframe of indices and column of floats.
 
-    gen_data(self, data, prev_products=None):
-            Function to get score, percentage complete as dataframe for subscore. Optionally
-            include previous subscores.
+    gen_data(self, data):
+            Function to get score, percentage complete as dataframe for subscore. The data operated on comes
+            only from raw data from the csv file. 
+    gen_data_for_products(self, prev_products):
+            Function to get score, percentage complete as dataframe for subscore. The data
+            operated on comes from previous products.
     """
     SCORED = "scrd"
     PERCENT = "perc"
@@ -214,16 +220,19 @@ class Subscore:
 
         perc_complete = (answered / total_quest)
         return perc_complete
-
-    def gen_data(self, data, prev_products=None):
+    
+    def perc_complete_for_products(self, row):
+        total_percentage_across_products = row.sum()
+        # Get total answered questions
+        number_of_products = len(self.products)
+        perc_complete_for_products = (total_percentage_across_products / number_of_products)
+        return perc_complete_for_products
+    
+    def gen_data(self, data):
         # Filter based on selected questions
         data = self._select_questions(data)
 
-        # Select product columns if available
-        append_prod = self._select_products(prev_products)
-
         data = self._reverse_score(data)
-        data = pd.concat([data, append_prod], axis=1)
 
         # Create a column for each unique session, row, and event
         unique_vals = self._get_unique_sre(data)
@@ -250,4 +259,27 @@ class Subscore:
                 score.loc[index, self._scored_column(unique)] = self._score_type(
                     row_set) if self._valid_thresh(perc) else np.NaN
 
+        return score
+    
+    def gen_data_for_products(self, prev_products):
+        # Create a column for each unique session, row, and event
+        unique_vals = self._get_unique_sre(prev_products)
+        unique_cols = []
+        for val in unique_vals:
+            unique_cols.append(self._perc_column(val))
+            unique_cols.append(self._scored_column(val))
+        # Create a dataframe of percentage complete and scored column name
+        score = pd.DataFrame(index=prev_products.index, columns=unique_cols)
+
+        for index, row in prev_products.iterrows():
+            for unique in unique_vals:
+                #Create a copy to prevent modification in place
+                row_set = row.copy()
+                # Filter row according to unique s_r_e
+                row_set = row_set.filter(regex=rf"{unique}")
+                perc = self.perc_complete_for_products(row_set.filter(regex=rf"{self.PERCENT}"))
+                score.loc[index, self._perc_column(unique)] = perc
+                # Calculate score and assign to column if percentage complete is past threshold
+                score.loc[index, self._scored_column(unique)] = self._score_type(
+                    row_set.filter(regex=rf"{self.SCORED}")) if self._valid_thresh(perc) else np.NaN
         return score
