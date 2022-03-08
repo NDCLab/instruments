@@ -120,15 +120,29 @@ class Survey:
         all_scores = pd.DataFrame()
         for ver_surv in self.versions:
             ver_scores = pd.DataFrame()
+            product_scores = pd.DataFrame()
             for subscore, params in self.subscores.items():
                 if len(params) == 0:
                     raise TypeError("No parameters for %s. Skipping."%(subscore))
                 try:
                     sub_obj = Subscore(name=ver_surv, sub_name=subscore, **params)
-                    single_score = sub_obj.gen_data(self.data.filter(regex=rf"{ver_surv}_[a-z][0-9]"), ver_scores)
-                    ver_scores = pd.concat([ver_scores, single_score], axis=1)
+                    if sub_obj.products == None:
+                        single_score = sub_obj.gen_data(self.data.filter(regex=rf"{ver_surv}_[a-z][0-9]"))
+                        ver_scores = pd.concat([ver_scores, single_score], axis=1)
+                    else:
+                        product_score = sub_obj.gen_data_for_products(ver_scores)
+                        product_scores = pd.concat([product_scores, product_score], axis=1)
+                        ver_scores = pd.DataFrame()
                 except RuntimeError:
                     continue
+             # Sort according to session, run, and event, in that order
+            product_scores = product_scores.reindex(
+                sorted(product_scores.columns, key=lambda x: \
+                    (int(x.split(self.DELIM)[self.SES_POS][1]),\
+                    int(x.split(self.DELIM)[self.RUN_POS][1]),\
+                    int(x.split(self.DELIM)[self.EVENT_POS][1]))\
+            ), axis=1)
+            all_scores = pd.concat([all_scores, product_scores], axis=1)
 
             # Sort according to session, run, and event, in that order
             ver_scores = ver_scores.reindex(
