@@ -33,7 +33,7 @@ def json_score(input_path, survey_dat, output_path=None):
             all_surveys = pd.concat([all_surveys, handle], axis=1)
         except RuntimeError:
             continue
-    all_surveys.fillna(value="NA", inplace=True)
+    all_surveys.fillna(value="N/A", inplace=True)
     if output_path is not None:  
         all_surveys.to_csv(output_path)
     return all_surveys
