@@ -1,0 +1,18 @@
+﻿variable,description,detail,allowedSuffix,valueType,allowedValues,valueInfo,naValueType,activeStatus,replacement,provenance
+sas_2_i1_s1_r1_e1,"SAS2, question 1",It is hard to concentrate on the game,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i2_s1_r1_e1,"SAS2, question 2",My body feels tense,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i3_s1_r1_e1,"SAS2, question 3",I worry that I will not play well,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i4_s1_r1_e1,"SAS2, question 4",It is hard for me to focus on what I am supposed to do,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i5_s1_r1_e1,"SAS2, question 5",I worry that I will let others down,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i6_s1_r1_e1,"SAS2, question 6",I feel tense in my stomach,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i7_s1_r1_e1,"SAS2, question 7",I lose focus on the game,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i8_s1_r1_e1,"SAS2, question 8",I worry that I will not play my best,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i9_s1_r1_e1,"SAS2, question 9",I worry that I will play badly,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i10_s1_r1_e1,"SAS2, question 10",My muscles feel shaky,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i11_s1_r1_e1,"SAS2, question 11",I worry that I will mess up during the game,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i12_s1_r1_e1,"SAS2, question 12",My stomach feels upset,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i13_s1_r1_e1,"SAS2, question 13",I cannot think clearly during the game,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i14_s1_r1_e1,"SAS2, question 14",My muscles feel tight because I am nervous,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas_2_i15_s1_r1_e1,"SAS2, question 15",I have a hard time focusing on what my coach tells me to do,s1_r1_e1,Likert,"1, 2, 3, 4","1, Not At All | 2, A Little Bit | 3, Pretty Much | 4, Very Much",NA,1,NA,direct-redcap
+sas2_scrdTotal,SAS2 total score,total score: sum of all items (NA if partial response prevents calculation of subscore),s1_r1_e1,Integer,"[15,120]",NA,NA,1,NA,code-instruments
+sas2_percTotal,SAS2 percentage response,percentage of responses for all items (NA if all items are blank),s1_r1_e1,Real,"[0,1]",NA,NA,1,NA,code-instruments

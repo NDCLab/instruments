@@ -1,0 +1,9 @@
+﻿variable,description,detail,allowedSuffix,valueType,allowedValues,valueInfo,naValueType,activeStatus,replacement,provenance
+post_flanker_i1_s1_r1_e1,"postTaskC, question 1","Throughout the task, how much attention did you pay to responding accurately?",s1_r1_e1,Likert,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10","1, 1 Not at all | 2, 2 | 3, 3 | 4, 4 | 5, 5 A moderate amount | 6, 6 | 7, 7 | 8, 8 | 9, 9 | 10, 10 A lot",NA,1,NA,direct-redcap
+post_flanker_i2_s1_r1_e1,"postTaskC, question 2",How frustrated did you feel after making an error?,s1_r1_e1,Likert,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+post_flanker_i3_s1_r1_e1,"postTaskC, question 3",How anxious did you feel after making an error?,s1_r1_e1,Likert,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+post_flanker_errors_s1_r1_e1,"postTaskC, question 4",How many errors do you believe you made? (type in numerical answer),s1_r1_e1,Integer,Indefinite,NA,NA,1,NA,direct-redcap
+post_flanker_i1_s1_r1_e1_v2,"postTaskC, question 1","Throughout the task, how much attention did you pay to responding accurately?",s1_r1_e2,Likert,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10","1, 1 Not at all | 2, 2 | 3, 3 | 4, 4 | 5, 5 A moderate amount | 6, 6 | 7, 7 | 8, 8 | 9, 9 | 10, 10 A lot",NA,1,NA,direct-redcap
+post_flanker_i2_s1_r1_e1_v2,"postTaskC, question 2",How frustrated did you feel after making an error?,s1_r1_e2,Likert,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+post_flanker_i3_s1_r1_e1_v2,"postTaskC, question 3",How anxious did you feel after making an error?,s1_r1_e2,Likert,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+post_flanker_errors_s1_r1_e1_v2,"postTaskC, question 4",How many errors do you believe you made? (type in numerical answer),s1_r1_e2,Integer,Indefinite,NA,NA,1,NA,direct-redcap

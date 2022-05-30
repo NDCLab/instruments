@@ -1,0 +1,19 @@
+﻿variable,description,detail,allowedSuffix,valueType,allowedValues,valueInfo,naValueType,activeStatus,replacement,provenance
+sssqpost_i14_s1_r1_e1,"sssqpost_b, question 14",I tried to figure myself out.,s1_r1_e1,Likert,"1, 2, 3, 4, 5","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+sssqpost_i15_s1_r1_e1,"sssqpost_b, question 15",I reflected about myself.,s1_r1_e1,Likert,"1, 2, 3, 4, 5","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+sssqpost_i16_s1_r1_e1,"sssqpost_b, question 16",I daydreamed about myself.,s1_r1_e1,Likert,"1, 2, 3, 4, 5","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+sssqpost_i18_s1_r1_e1,"sssqpost_b, question 18",I felt self-conscious.,s1_r1_e1,Likert,"1, 2, 3, 4, 5","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+sssqpost_i19_s1_r1_e1,"sssqpost_b, question 19",I was worried about what other people would think of me.,s1_r1_e1,Likert,"1, 2, 3, 4, 5","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+sssqpost_i20_s1_r1_e1,"sssqpost_b, question 20",I was concerned about the impression I was making.,s1_r1_e1,Likert,"1, 2, 3, 4, 5","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+sssqpost_i23_s1_r1_e1,"sssqpost_b, question 23",I thought about how others have done on this task.,s1_r1_e1,Likert,"1, 2, 3, 4, 5","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+sssqpost_i24_s1_r1_e1,"sssqpost_b, question 24",I thought about how I would feel if I were told how I performed.,s1_r1_e1,Likert,"1, 2, 3, 4, 5","1, 2, 3, 4, 5",NA,1,NA,direct-redcap
+sssqpost_i14_s1_r1_e1_v2,"sssqpost_b, question 14",," s1_r1_e2, s1_r1_e3, s1_r1_e4",Likert,"1, 2, 3, 4, 6","1, 2, 3, 4, 6",NA,1,NA,direct-redcap
+sssqpost_i15_s1_r1_e1_v2,"sssqpost_b, question 15",," s1_r1_e2, s1_r1_e3, s1_r1_e4",Likert,"1, 2, 3, 4, 7","1, 2, 3, 4, 7",NA,1,NA,direct-redcap
+sssqpost_i16_s1_r1_e1_v2,"sssqpost_b, question 16",," s1_r1_e2, s1_r1_e3, s1_r1_e4",Likert,"1, 2, 3, 4, 8","1, 2, 3, 4, 8",NA,1,NA,direct-redcap
+sssqpost_i18_s1_r1_e1_v2,"sssqpost_b, question 18",," s1_r1_e2, s1_r1_e3, s1_r1_e4",Likert,"1, 2, 3, 4, 9","1, 2, 3, 4, 9",NA,1,NA,direct-redcap
+sssqpost_i19_s1_r1_e1_v2,"sssqpost_b, question 19",," s1_r1_e2, s1_r1_e3, s1_r1_e4",Likert,"1, 2, 3, 4, 10","1, 2, 3, 4, 10",NA,1,NA,direct-redcap
+sssqpost_i20_s1_r1_e1_v2,"sssqpost_b, question 20",," s1_r1_e2, s1_r1_e3, s1_r1_e4",Likert,"1, 2, 3, 4, 11","1, 2, 3, 4, 11",NA,1,NA,direct-redcap
+sssqpost_i23_s1_r1_e1_v2,"sssqpost_b, question 23",," s1_r1_e2, s1_r1_e3, s1_r1_e4",Likert,"1, 2, 3, 4, 12","1, 2, 3, 4, 12",NA,1,NA,direct-redcap
+sssqpost_i24_s1_r1_e1_v2,"sssqpost_b, question 24",," s1_r1_e2, s1_r1_e3, s1_r1_e4",Likert,"1, 2, 3, 4, 13","1, 2, 3, 4, 13",NA,1,NA,direct-redcap
+sssqpost_scrdWry,worry subscore for pre-task,"worry subscore for post-task: average of 14, 15, 16, 18, 19, 20, 23, and 24 from the sssqpost (NaN if partial response prevents calculation of score)","s1_r1_e1, s1_r1_e2, s1_r1_e3, s1_r1_e4",Integer,"[1,5]",NA,NA,1,NA,code-instruments
+sssqpost_percWry,percentage of response for engagement subscore for pre-task,percentage of response for worry subscore for post-task (NaN if all items are blank),"s1_r1_e1, s1_r1_e2, s1_r1_e3, s1_r1_e4",Real,"[0,1]",NA,NA,1,NA,code-instruments
