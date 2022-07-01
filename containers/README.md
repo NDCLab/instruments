@@ -53,7 +53,7 @@ Once inside the container shell, restart the conda environment by executing:
 Run the `init_docker.sh` script within your command prompt by executing:
    ```
    cd containers/docker
-   sh init_start_docker.sh
+   sh init_docker.sh
    ```
 
 Once inside the container shell, restart the conda environment by executing:

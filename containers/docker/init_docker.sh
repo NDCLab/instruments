@@ -4,7 +4,7 @@
 docker volume create data
 
 # bind the volume by running the container with the specified tags
-docker run -it -d --name instruments -w /projects/pepper-pipeline --mount source=data,destination=/projects instruments_container:flute-flute-0.1.0
+docker run -it -d --name instruments -w /projects/pepper-pipeline --mount source=data,destination=/projects ndclab/instruments_container:flute-0.1.0
 
 # copy all data from local to container
 docker cp ../../scripts instruments:/projects/instruments
