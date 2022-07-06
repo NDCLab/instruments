@@ -193,7 +193,7 @@ class Subscore:
     def _valid_thresh(self, perc):
         try:
             perc = Subscore.frac_to_perc(perc)
-        except ZeroDivisionError:
+        except:
             return False
         if isinstance(self.threshold, (int, float)):
             return perc >= self.threshold
