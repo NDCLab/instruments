@@ -191,7 +191,10 @@ class Subscore:
             return row.max()
 
     def _valid_thresh(self, perc):
-        perc = Subscore.frac_to_perc(perc)
+        try:
+            perc = Subscore.frac_to_perc(perc)
+        except ZeroDivisionError:
+            return False
         if isinstance(self.threshold, (int, float)):
             return perc >= self.threshold
         if isinstance(self.threshold, list):
