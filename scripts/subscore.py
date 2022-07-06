@@ -191,6 +191,7 @@ class Subscore:
             return row.max()
 
     def _valid_thresh(self, perc):
+        # hotfix
         try:
             perc = Subscore.frac_to_perc(perc)
         except:
@@ -230,7 +231,12 @@ class Subscore:
 
     def frac_to_perc(perc):
         numer_denom = perc.split("/")
-        return int(numer_denom[0]) / int(numer_denom[1])
+        try:
+            percent = int(numer_denom[0]) / int(numer_denom[1])
+        except:
+            # hot fix, 0 for now
+            percent = 0
+        return percent
 
     def gen_data(self, ver_surv, sre, data):
         # Filter based on selected questions
